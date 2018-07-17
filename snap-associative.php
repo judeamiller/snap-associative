@@ -1,43 +1,34 @@
-<!DOCTYPE html>
-<html>
-	<body>
-		<?php
+<?php
 
-		$peopleArray = array(
-			"Jude" => array(
-				"name" => "Jude Baca-Miller",
-				"age" => 32
-			),
-			"Britt" => array(
-				"name" => "Britt Baca-Miller",
-				"age" => 36
-			),
-			"Juan" => array(
-				"name" => "Juan Tabo",
-				"age" => 97
-			),
-			"John" => array(
-				"name" => "John Doe",
-				"age" => 45
-			),
-			"Jane" => array(
-				"name" => "Jane Smith",
-				"age" => 12
-			),
-			"Tom" => array(
-				"name" => "Tom Matano",
-				"age" => 73
-			)
-		);
-
-		print_r(array_sort($peopleArray, "name", SORT_ASC));
+$paramArray = [
+	["name" => "Jude", "age" => 32],
+	["name" => "Britt", "age" => 36],
+	["name" => "Tom", "age" => 34],
+	["name" => "Spam", "age" => 73]
+];
 
 
+/**
+ *a function that takes an associativie array of people with names and ages and returns an average age
+ * @param array $personsArray an array of people
+ * @returnint $averageAge average age of people in the array
+ */
 
+function averageAge(array $personsArray) :float {
 
+	$totalAge = 0;
 
-		?>
-	</body>
-</html>
+	foreach($personsArray as $person) {
 
+		//php_eol creates a new line when outputting values from the script.
+		echo "this person's age is " . $person["age"] . PHP_EOL;
+		$totalAge += $person["age"];
+	}
+		// make sure totalage is the correct number
+		echo "total age is  " .$totalAge . PHP_EOL;
 
+	return ($totalAge / count($personsArray));
+
+}
+
+echo "the average age of these people is " .averageAge($paramArray).PHP_EOL;
